@@ -54,7 +54,18 @@ class BST:
         temp=self.rt
         while temp.right:
             temp=temp.right
-        print("Maximum value:",temp.data)               
+        print("Maximum value:",temp.data)     
+
+    def search(self,key):
+        temp=self.root
+        while temp:
+            if temp.data==key:
+                return True
+            elif key<temp.data:
+                temp=temp.left
+            else:
+                temp=temp.right
+        return False
 
 b1=BST()
 b1.insert(Node(100))
@@ -65,8 +76,12 @@ b1.insert(Node(65))
 b1.insert(Node(300))
 print("Inorder:")
 b1.inorder(b1.root)             
-print("\nPreorder:")
-b1.preorder(b1.root)             
-print("\nPostorder:")
-b1.postorder(b1.root)   
-b1.findminmax()
+# print("\nPreorder:")
+# b1.preorder(b1.root)             
+# print("\nPostorder:")
+# b1.postorder(b1.root)   
+# b1.findminmax()
+if b1.search(65):
+    print("\nFound the node")
+else:
+    print("\nNot found the node")    
